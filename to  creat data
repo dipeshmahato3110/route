@@ -1,0 +1,17 @@
+let q = `INSERT INTO user (id, username, email, password) VALUES ?`;
+//  let user = ["1234", "1234_dm", "dm@44gmail.com", "d44ipesh"];
+let data = [];
+for(let i =1; i <=50; i++){
+  data.push(createRandomUser());
+  console.log(createRandomUser());
+  
+}
+try {
+  connection.query(q, [data], (err, result) => {
+    if (err) throw err;
+    console.log(result);
+  });
+} catch (err) {
+  console.log(err);
+}
+connection.end();
